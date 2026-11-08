@@ -1,0 +1,36 @@
+From 7af59852300790940ec89aa392a5b3a646d32c29 Mon Sep 17 00:00:00 2001
+From: chinmay-cd <chinmaycd27@gmail.com>
+Date: Sun, 8 Nov 2026 16:51:11 +0530
+Subject: [PATCH 3/3] Add Render API deployment blueprint
+
+---
+ render.yaml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+ create mode 100644 render.yaml
+
+diff --git a/render.yaml b/render.yaml
+new file mode 100644
+index 0000000..521484b
+--- /dev/null
++++ b/render.yaml
+@@ -0,0 +1,17 @@
++﻿services:
++  - type: web
++    name: wattwise-auth-api
++    runtime: node
++    rootDir: backend
++    buildCommand: npm install
++    startCommand: npm start
++    healthCheckPath: /api/health
++    envVars:
++      - key: DATABASE_URL
++        sync: false
++      - key: JWT_SECRET
++        sync: false
++      - key: FRONTEND_ORIGIN
++        value: https://idealabsmartelectricitysaverwebsite.vercel.app
++      - key: PGSSL
++        value: "true"
+-- 
+2.56.0.windows.2
+

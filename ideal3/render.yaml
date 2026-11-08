@@ -1,0 +1,17 @@
+﻿services:
+  - type: web
+    name: wattwise-auth-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: FRONTEND_ORIGIN
+        value: https://idealabsmartelectricitysaverwebsite.vercel.app
+      - key: PGSSL
+        value: "true"
