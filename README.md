@@ -1,12 +1,13 @@
 ﻿# Wattwise smart electricity saver
 
-A responsive static website with a Node.js/PostgreSQL authentication API.
+Responsive Wattwise website with sign-up, sign-in, a password visibility control, and an energy dashboard after authentication.
 
-## Project layout
+## Files
 
-- `outputs/` — static site files for Vercel
-- `backend/` — Express API, PostgreSQL account storage, and setup instructions
+- `index.html` — website and post-login dashboard
+- `api-config.js` — API origin configuration
+- `backend/` — Express API with PostgreSQL account storage
 
-See [backend/README.md](backend/README.md) for local setup, required environment variables, and deployment guidance. Set `window.WATTWISE_API_URL` in `outputs/api-config.js` to your API host before deploying the site.
+The dashboard begins with clearly labeled sample readings. Users can enter their monthly kWh and bill amount; those values are saved in that browser on that device. The chart and appliance breakdown remain sample data until a meter or real usage integration is connected.
 
-The API implements account registration, sign-in, and authenticated session lookup. Password recovery is not implemented yet. Never commit real `.env` files, database credentials, or signing keys.
+See `backend/README.md` for local setup and deployment. Set `window.WATTWISE_API_URL` in `api-config.js` to your deployed API origin before publishing the site. Never commit real `.env` files, database credentials, or signing keys.
